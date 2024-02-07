@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SDJ2.iml" filepath="$PROJECT_DIR$/SDJ2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Session1/Session1.iml" filepath="$PROJECT_DIR$/Session1/Session1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Session1/opg1-1/opg1-1.iml" filepath="$PROJECT_DIR$/Session1/opg1-1/opg1-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Session1/opg1-2/opg1-2.iml" filepath="$PROJECT_DIR$/Session1/opg1-2/opg1-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Session1/opg1-3/opg1-3.iml" filepath="$PROJECT_DIR$/Session1/opg1-3/opg1-3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Session1/opg1-4/opg1-4.iml" filepath="$PROJECT_DIR$/Session1/opg1-4/opg1-4.iml" />
+    </modules>
+  </component>
+</project>
