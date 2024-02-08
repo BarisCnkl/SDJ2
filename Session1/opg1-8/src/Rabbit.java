@@ -13,17 +13,17 @@ public class Rabbit implements Runnable
   @Override public void run()
   {
     Random random = new Random();
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 1000; i++)
     {
       try
       {
-        if(i > turtle.getCounter() + AHEAD_DISTANCE)
+        if (i > turtle.getCounter() + AHEAD_DISTANCE)
       {
         int sleepTime = random.nextInt(500)+500;
           System.out.println("Rabbit noticed the turtle is not ahead, so its going to sleep for " + sleepTime + " millies");
           Thread.sleep(sleepTime);
       }
-        System.out.println("Rabbit has moved " + i + " meters");
+          System.out.println("Rabbit has moved " + i + " meters");
       }
       catch (InterruptedException e)
         {

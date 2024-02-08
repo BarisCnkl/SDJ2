@@ -4,10 +4,11 @@ public class Turtle implements Runnable
 
   @Override public void run()
   {
-      for (int counter = 0; counter < 100; counter++)
+      for (int counter = 0; counter < 1000; counter++)
       {
         try
         {
+          this.counter++;
           Thread.sleep(10);
           System.out.println("Turtle has moved " + counter + " meters");
         }
