@@ -2,13 +2,18 @@ import java.util.ArrayList;
 
 public class Pic implements Runnable
 {
-  private Thread bearThread;
   private int timeToSleep;
+  private ArrayList <Thread> bears;
 
 
-  public Pic(ArrayList<Thread> bears)
+  public Pic(ArrayList<Thread> bears, int timeToSleep)
   {
-    this.bearThread = bearThread;
+    this.timeToSleep = timeToSleep;
+    this.bears=bears;
+  }
+
+  public void set(Thread bearThread,int timeToSleep)
+  {
     this.timeToSleep = timeToSleep;
   }
 
@@ -16,12 +21,15 @@ public class Pic implements Runnable
   {
     try
     {
-      Thread.sleep(3000);
-      bearThread.interrupt();
+      Thread.sleep(timeToSleep);
+      for (int i = 0; i < bears.size(); i++)
+      {
+        bears.get(i).interrupt();
+      }
     }
     catch (InterruptedException e)
     {
-      throw new RuntimeException(e);
+      e.printStackTrace();
     }
   }
 }
