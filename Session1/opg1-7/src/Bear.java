@@ -1,5 +1,12 @@
 public class Bear implements Runnable
 {
+  private Cave cave;
+
+  public Bear(Cave cave)
+  {
+    this.cave = cave;
+  }
+
   @Override public void run()
   {
     try

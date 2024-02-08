@@ -1,10 +1,15 @@
+import java.util.ArrayList;
+
 public class Pic implements Runnable
 {
   private Thread bearThread;
+  private int timeToSleep;
 
-  public Pic(Thread bearThread)
+
+  public Pic(ArrayList<Thread> bears)
   {
     this.bearThread = bearThread;
+    this.timeToSleep = timeToSleep;
   }
 
   @Override public void run()
