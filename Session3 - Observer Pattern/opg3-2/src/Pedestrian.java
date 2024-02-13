@@ -1,9 +1,9 @@
-public class Taxi
+public class Pedestrian
 {
   private String previousLight;
   private int id;
 
-  public Taxi(int id)
+  public Pedestrian(int id)
   {
     this.id = id;
   }
@@ -12,22 +12,22 @@ public class Taxi
   {
     if ("GREEN".equals(currentlight))
     {
-      System.out.println("Taxi " + id + "Drives");
+      System.out.println("Pedestrian " + id + "waiting");
     }
     else if ("YELLOW".equals(currentlight))
     {
       if ("RED".equals(previousLight))
       {
-        System.out.println("Taxi " + id + "turns engine on");
+        System.out.println("Pedestrian " + id + "slows down");
       }
       else
       {
-        System.out.println("Taxi " + id + "Im busy i drive");
+        System.out.println("Pedestrian " + id + "getting readdy to cross the road");
       }
     }
     else if("RED".equals(currentlight))
     {
-      System.out.println("Taxi " + id + "stops");
+      System.out.println("Pedestrian " + id + "walks");
     }
     previousLight = currentlight;
   }
