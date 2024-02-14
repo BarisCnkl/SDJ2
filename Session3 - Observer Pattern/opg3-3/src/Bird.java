@@ -1,28 +1,48 @@
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Random;
 
-public class Bird implements Pro
+public class Bird
 {
   private PropertyChangeSupport support;
-  private String event;
-
-  public Bird(PropertyChangeSupport support, String event)
+  public Bird()
   {
     support = new PropertyChangeSupport(this);
   }
-
-  public void setEvent(String event)
+  public void start()
   {
-    if (event.equals("Flaps"))
+    while(true)
     {
-      System.out.println("Peacock flashes its wings");
+      try
+      {
+        Thread.sleep(2000);
+      }
+      catch (InterruptedException e)
+      {
+        throw new RuntimeException(e);
+      }
+      int random = (int) (Math.random()*2) + 1;
+      if (random == 1)
+      {
+        System.out.println("Peacock flaps its wings");
+        String birdMove = "Peacock flaps its wings";
+        support.firePropertyChange("birdMove", null , null);
+      }
+      else
+      {
+        System.out.println("Peacock whistles");
+        String birdMove = "Peacock whistles";
+        support.firePropertyChange("birdSing", null , null);
+      }
     }
-    else if(event.equals("Sing"))
-    {
-      System.out.println("Peacock whistles");
-    }
-    else
-    {
-      System.out.println("Bird waiting");
-    }
+  }
+
+  public void propertyChangeListenerAdd(String name, PropertyChangeListener listener)
+  {
+    support.addPropertyChangeListener(name,listener);
+  }
+  public void propertyChangeListenerRemove(PropertyChangeListener listener)
+  {
+    support.removePropertyChangeListener(listener);
   }
 }
