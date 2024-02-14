@@ -1,4 +1,7 @@
-public class Car
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class Car implements PropertyChangeListener
 {
   private String previousLight;
   private int id;
@@ -30,5 +33,9 @@ public class Car
       System.out.println("Car " + id + "stops");
     }
     previousLight = currentlight;
+  }
+  public void propertyChange(PropertyChangeEvent evt)
+  {
+    setLight((String) evt.getNewValue());
   }
 }

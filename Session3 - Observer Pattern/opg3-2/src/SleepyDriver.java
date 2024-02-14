@@ -1,4 +1,7 @@
-public class SleepyDriver
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class SleepyDriver implements PropertyChangeListener
 {
   private String previousLight;
   private int id;
@@ -30,5 +33,9 @@ public class SleepyDriver
       System.out.println("SleepyDriver " + id + "stops");
     }
     previousLight = currentlight;
+  }
+  public void propertyChange(PropertyChangeEvent evt)
+  {
+    setLight((String) evt.getNewValue());
   }
 }

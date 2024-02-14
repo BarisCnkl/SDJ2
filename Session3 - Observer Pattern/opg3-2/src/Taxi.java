@@ -1,4 +1,7 @@
-public class Taxi
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class Taxi implements PropertyChangeListener
 {
   private String previousLight;
   private int id;
@@ -30,5 +33,9 @@ public class Taxi
       System.out.println("Taxi " + id + "stops");
     }
     previousLight = currentlight;
+  }
+  public void propertyChange(PropertyChangeEvent evt)
+  {
+    setLight((String) evt.getNewValue());
   }
 }

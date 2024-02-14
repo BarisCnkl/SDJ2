@@ -1,4 +1,7 @@
-public class Pedestrian
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class Pedestrian implements PropertyChangeListener
 {
   private String previousLight;
   private int id;
@@ -30,5 +33,9 @@ public class Pedestrian
       System.out.println("Pedestrian " + id + "walks");
     }
     previousLight = currentlight;
+  }
+  public void propertyChange(PropertyChangeEvent evt)
+  {
+    setLight((String) evt.getNewValue());
   }
 }
