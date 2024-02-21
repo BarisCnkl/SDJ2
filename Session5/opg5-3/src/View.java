@@ -1,4 +1,5 @@
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.util.converter.NumberStringConverter;
@@ -13,6 +14,8 @@ public class View
   TextField passwordRepeatField;
   @FXML
   TextField ageField;
+  @FXML
+  Button addButton;
 
   private ViewModel viewModel;
 
@@ -39,6 +42,10 @@ public class View
     }));
     passwordField.textProperty().bindBidirectional(viewModel.passwordProperty());
     passwordRepeatField.textProperty().bindBidirectional(viewModel.passwordRepeatProperty());
+  }
+  public void setAddButtondisabled()
+  {
+    addButton.disableProperty().bind(viewModel.shouldSubmitBeDisabledProperty());
   }
 
   public void onAddButtonPressed()
