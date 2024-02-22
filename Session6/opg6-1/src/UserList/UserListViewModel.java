@@ -1,9 +1,12 @@
 package UserList;
 
 import Model.Model;
+import Model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import Model.User;
+
+import java.beans.PropertyChangeEvent;
+import java.util.List;
 
 public class UserListViewModel
 {
@@ -13,16 +16,17 @@ public class UserListViewModel
   {
     this.model = model;
     userObservableList = FXCollections.observableArrayList();
+    model.addPropertyChangeListener("UserAdded", this::update);
   }
 
   public ObservableList<User> getUserObservableList()
   {
     return userObservableList;
   }
-
-  public void refreshList()
+  private void update(PropertyChangeEvent propertyChangeEvent)
   {
     userObservableList.clear();
-    userObservableList.addAll(model.getUsers());
+    userObservableList.addAll((List<User>)propertyChangeEvent.getNewValue());
   }
+
 }

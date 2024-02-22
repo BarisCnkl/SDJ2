@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/Session3 - Observer Pattern/Session3 - Observer Pattern.iml" filepath="$PROJECT_DIR$/Session3 - Observer Pattern/Session3 - Observer Pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/Session4/Session4.iml" filepath="$PROJECT_DIR$/Session4/Session4.iml" />
       <module fileurl="file://$PROJECT_DIR$/Session5/Session5.iml" filepath="$PROJECT_DIR$/Session5/Session5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Session6/Session6.iml" filepath="$PROJECT_DIR$/Session6/Session6.iml" />
       <module fileurl="file://$PROJECT_DIR$/Session1/opg1-1/opg1-1.iml" filepath="$PROJECT_DIR$/Session1/opg1-1/opg1-1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Session1/opg1-2/opg1-2.iml" filepath="$PROJECT_DIR$/Session1/opg1-2/opg1-2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Session1/opg1-3/opg1-3.iml" filepath="$PROJECT_DIR$/Session1/opg1-3/opg1-3.iml" />
@@ -32,6 +33,8 @@
       <module fileurl="file://$PROJECT_DIR$/Session5/opg5-2/opg5-2.iml" filepath="$PROJECT_DIR$/Session5/opg5-2/opg5-2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Session5/opg5-3/opg5-3.iml" filepath="$PROJECT_DIR$/Session5/opg5-3/opg5-3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Session5/opg5-4/opg5-4.iml" filepath="$PROJECT_DIR$/Session5/opg5-4/opg5-4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Session6/opg6-1/opg6-1.iml" filepath="$PROJECT_DIR$/Session6/opg6-1/opg6-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Session6/opg6-2/opg6-2.iml" filepath="$PROJECT_DIR$/Session6/opg6-2/opg6-2.iml" />
     </modules>
   </component>
 </project>
