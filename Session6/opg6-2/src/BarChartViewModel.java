@@ -11,6 +11,7 @@ public class BarChartViewModel
   public BarChartViewModel(DataModel dataModel)
   {
     this.dataModel = dataModel;
+    dataModel.addPropertyChangeListener("DataChange", this::update);
     red = new SimpleIntegerProperty();
     blue = new SimpleIntegerProperty();
     green = new SimpleIntegerProperty();
