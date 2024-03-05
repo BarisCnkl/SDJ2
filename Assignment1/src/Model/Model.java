@@ -62,4 +62,8 @@ public class Model implements PropertyChangeSubject
   {
     propertyChangeSupport.removePropertyChangeListener(name,listener);
   }
+  public void addUser(User user)
+  {
+    users.add(user);
+  }
 }
