@@ -2,6 +2,7 @@ package ViewModel;
 
 import Model.Model;
 import Model.Vinyl;
+import Model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -28,5 +29,21 @@ public class VinylListViewModel
   {
     vinyls.clear();
     vinyls.addAll((List<Vinyl>) event.getNewValue());
+  }
+  public void removeVinyl(Vinyl vinyl)
+  {
+    model.removeVinyl(vinyl);
+  }
+  public void borrowVinyl(Vinyl vinyl, User user)
+  {
+    model.borrowVinyl(vinyl, user);
+  }
+  public void reserveVinyl(Vinyl vinyl, User user)
+  {
+    model.reserveVinyl(vinyl,user);
+  }
+  public void returnVinyl(Vinyl vinyl)
+  {
+    model.returnVinyl(vinyl);
   }
 }

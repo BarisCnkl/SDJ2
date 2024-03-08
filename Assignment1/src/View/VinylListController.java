@@ -5,6 +5,8 @@ import Model.User;
 import Model.Vinyl;
 import ViewModel.VinylListViewModel;
 import javafx.fxml.FXML;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,4 +41,25 @@ public class VinylListController
     reservedIdTableView.setCellValueFactory(new PropertyValueFactory<>("user"));
     tableView.getItems().addAll(vinylListViewModel.getVinyls());
   }
+  /*public void onRemoveButtonClicked()
+  {
+    Vinyl vinyl = (Vinyl) tableView.getSelectionModel().getSelectedItem();
+    User selectedUser =
+    vinylListViewModel.removeVinyl(vinyl, );
+  }
+  public void onBorrowButtonClicked()
+  {
+    Vinyl vinyl = (Vinyl) tableView.getSelectionModel().getSelectedItem();
+    vinylListViewModel.borrowVinyl(vinyl, );
+  }
+  public void onReserveButtonClicked()
+  {
+    Vinyl vinyl = (Vinyl) tableView.getSelectionModel().getSelectedItem();
+    vinylListViewModel.reserveVinyl(vinyl, );
+  }
+  public void onReturnButtonClicked()
+  {
+    Vinyl vinyl = (Vinyl) tableView.getSelectionModel().getSelectedItem();
+    vinylListViewModel.returnVinyl(vinyl, );
+  }*/
 }

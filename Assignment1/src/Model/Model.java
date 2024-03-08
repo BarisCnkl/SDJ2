@@ -66,4 +66,34 @@ public class Model implements PropertyChangeSubject
   {
     users.add(user);
   }
+  public void borrowVinyl(Vinyl vinyl, User user)
+  {
+    for (int i = 0; i < vinyls.size(); i++)
+    {
+      if (vinyls.get(i).equals(vinyl))
+      {
+        vinyls.get(i).vinylBorrow(user);
+      }
+    }
+  }
+  public void reserveVinyl(Vinyl vinyl, User user)
+  {
+    for (int i = 0; i < vinyls.size(); i++)
+    {
+      if (vinyls.get(i).equals(vinyl))
+      {
+        vinyls.get(i).vinylReserve(user);
+      }
+    }
+  }
+  public void returnVinyl(Vinyl vinyl)
+  {
+    for (int i = 0; i < vinyls.size(); i++)
+    {
+      if (vinyls.get(i).equals(vinyl))
+      {
+        vinyls.get(i).returnVinyl();
+      }
+    }
+  }
 }

@@ -32,22 +32,22 @@
                   <Insets left="100.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="removeVinylButton" mnemonicParsing="false" text="Remove Vinyl">
+            <Button fx:id="removeVinylButton" mnemonicParsing="false" onAction="#onRemoveButtonClicked" text="Remove Vinyl">
                <HBox.margin>
                   <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="borrowButton" mnemonicParsing="false" text="Borrow">
+            <Button fx:id="borrowButton" mnemonicParsing="false" onAction="#onBorrowButtonClicked" text="Borrow">
                <HBox.margin>
                   <Insets left="100.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="reserveButton" mnemonicParsing="false" text="Reserve">
+            <Button fx:id="reserveButton" mnemonicParsing="false" onAction="#onReserveButtonClicked" text="Reserve">
                <HBox.margin>
                   <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="returnButton" mnemonicParsing="false" text="Return">
+            <Button fx:id="returnButton" mnemonicParsing="false" onAction="#onReturnButtonClicked" text="Return">
                <HBox.margin>
                   <Insets left="10.0" top="5.0" />
                </HBox.margin>
