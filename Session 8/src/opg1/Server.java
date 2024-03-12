@@ -1,3 +1,5 @@
+package opg1;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -15,16 +17,21 @@ public class Server
             while (true)
             {
                 Socket socket = welcomeSocket.accept();
-                System.out.println("Client connected");
+                System.out.println("Clientconnected" + socket.getInetAddress());
 
                 ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
-                String o = (String) inFromClient.readObject();
-                System.out.println("Received: " + o);
-
-                String answer = o.toUpperCase();
-
                 ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
-                outToClient.writeObject(answer);
+
+                String o = (String) inFromClient.readObject();
+                while (!"Stop".equals(o))
+                {
+                    System.out.println("Received: " + o);
+
+                    String answer = o.toUpperCase();
+
+                    outToClient.writeObject(answer);
+                    o = (String) inFromClient.readObject();
+                }
             }
         }
         catch (IOException | ClassNotFoundException e)
