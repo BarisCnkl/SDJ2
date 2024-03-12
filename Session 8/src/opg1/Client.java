@@ -19,7 +19,8 @@ public class Client
 
             while(true)
             {
-                System.out.println("Write");
+                String o = (String)inFromServer.readObject();
+                System.out.println(o);
                 String stringToSend = scanner.nextLine();
                 if (stringToSend.equals("exit"))
                 {

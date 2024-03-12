@@ -23,14 +23,29 @@ public class Server
                 ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
 
                 String o = (String) inFromClient.readObject();
-                while (!"Stop".equals(o))
+                while (true)
                 {
+                    outToClient.writeObject("Select upper or lower, Type 'STOP' to finish");
+                    if (o.equals("STOP"))
+                    {
+                        break;
+                    }
                     System.out.println("Received: " + o);
 
-                    String answer = o.toUpperCase();
+                    if (o.equals(o.equals("upper")))
+                    {
+                        String message = (String) inFromClient.readObject();
+                        String answer = message.toUpperCase();
 
-                    outToClient.writeObject(answer);
-                    o = (String) inFromClient.readObject();
+                        outToClient.writeObject(answer);
+                    }
+                    if (o.equals(o.equals("lower")))
+                    {
+                        String message = (String) inFromClient.readObject();
+                        String answer = message.toUpperCase();
+
+                        outToClient.writeObject(answer);
+                    }
                 }
             }
         }
