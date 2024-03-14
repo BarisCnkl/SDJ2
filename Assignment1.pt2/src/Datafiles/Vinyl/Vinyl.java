@@ -1,11 +1,13 @@
 package Datafiles.Vinyl;
 
+import Datafiles.User;
 import Datafiles.Vinyl.States.AvailableState;
 import Datafiles.Vinyl.States.VinylState;
 
 public class Vinyl
 {
     private String title, artist, releaseYear;
+    private User reservedBy, borrowedBy;
     private VinylState currentState;
 
     public Vinyl(String title, String artist, String releaseYear) {
@@ -50,5 +52,25 @@ public class Vinyl
     public void getAvailable()
     {
         currentState.available(this);
+    }
+
+    public User getReservedBy()
+    {
+        return reservedBy;
+    }
+
+    public void setReservedBy(User reservedBy)
+    {
+        this.reservedBy = reservedBy;
+    }
+
+    public User getBorrowedBy()
+    {
+        return borrowedBy;
+    }
+
+    public void setBorrowedBy(User borrowedBy)
+    {
+        this.borrowedBy = borrowedBy;
     }
 }

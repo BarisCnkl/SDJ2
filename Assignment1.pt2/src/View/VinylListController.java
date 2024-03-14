@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.converter.NumberStringConverter;
 
 public class VinylListController
 {
@@ -22,6 +24,10 @@ public class VinylListController
     @FXML
     TableColumn<Vinyl, VinylState> statusColumn;
     @FXML
+    TableColumn<Vinyl, VinylState> ReservedId;
+    @FXML
+    TableColumn<Vinyl, VinylState> BorrowedId;
+    @FXML
     Button removeVinyl;
     @FXML
     Button borrowVinyl;
@@ -29,6 +35,9 @@ public class VinylListController
     Button reserveVinyl;
     @FXML
     Button returnVinyl;
+    @FXML
+    Button LogInButton;
+    @FXML TextField IdTextField;
 
     VinylListViewModel vinylListViewModel;
 
@@ -43,7 +52,9 @@ public class VinylListController
         artistColumn.setCellValueFactory(new PropertyValueFactory<>("artist"));
         releaseYearColumn.setCellValueFactory(new PropertyValueFactory<>("releaseYear"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("currentState"));
-
+        ReservedId.setCellValueFactory(new PropertyValueFactory<>("reservedBy"));
+        BorrowedId.setCellValueFactory(new PropertyValueFactory<>("borrowedBy"));
+        IdTextField.textProperty().bindBidirectional(vinylListViewModel.integerPropertyProperty(),new NumberStringConverter());
     }
 
     public void onRemoveVinylButtonPressed()
@@ -68,5 +79,9 @@ public class VinylListController
     {
         Vinyl vinyl = (Vinyl) vinylList.getSelectionModel().getSelectedItem();
         vinylListViewModel.returnVinyl(vinyl);
+    }
+    public void onLogInButtonPressed()
+    {
+        vinylListViewModel.logIn();
     }
 }

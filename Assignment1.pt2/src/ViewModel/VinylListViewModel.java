@@ -1,8 +1,11 @@
 package ViewModel;
 
 
+import Datafiles.User;
 import Datafiles.Vinyl.Vinyl;
 import Model.VinylListModel;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,11 +17,13 @@ public class VinylListViewModel
 {
     private VinylListModel model;
     private ObservableList<Vinyl> vinyls;
+    private IntegerProperty integerProperty;
 
     public VinylListViewModel(VinylListModel model) {
         this.model = model;
         vinyls = FXCollections.observableArrayList();
         model.addPropertyChangeListener("vinylUpdate", this::refresh);
+        integerProperty = new SimpleIntegerProperty();
     }
 
     public ObservableList<Vinyl> getVinyls() {
@@ -32,6 +37,11 @@ public class VinylListViewModel
         vinyls.addAll(vinyls1);
     }
 
+    public IntegerProperty integerPropertyProperty()
+    {
+        return integerProperty;
+    }
+
     public void removeVinyl(Vinyl vinyl)
     {
         model.removeVinyl(vinyl);
@@ -39,17 +49,21 @@ public class VinylListViewModel
 
     public void borrowVinyl(Vinyl vinyl)
     {
-        model.borrowVinyl(vinyl);
+        model.borrowVinyl(vinyl, model.getLoggedInUser());
     }
 
     public void reserveVinyl(Vinyl vinyl)
     {
-        model.reserveVinyl(vinyl);
+        model.reserveVinyl(vinyl, model.getLoggedInUser());
     }
 
     public void returnVinyl(Vinyl vinyl)
     {
-        model.returnVinyl(vinyl);
+        model.returnVinyl(vinyl, model.getLoggedInUser());
+    }
+    public void logIn()
+    {
+        model.setLoggedInUser(new User(integerProperty.get()));
     }
 
 }
