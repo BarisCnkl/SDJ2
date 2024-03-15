@@ -1,7 +1,3 @@
-package opg1;
-
-import opg1.ConnectionPool;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
