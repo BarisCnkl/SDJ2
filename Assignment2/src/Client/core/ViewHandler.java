@@ -1,6 +1,6 @@
 package Client.core;
 
-import Client.views.ChatViewController;
+import Client.View.ChatViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class ViewHandler
 {
+    private static ViewHandler instance;
     private ViewModelFactory viewModelFactory;
     private ChatViewController chatViewController;
 
@@ -16,10 +17,18 @@ public class ViewHandler
     private FXMLLoader fxmlLoader;
 
 
-    public ViewHandler(ViewModelFactory viewModelFactory, Stage primaryStage)
+    private ViewHandler(ViewModelFactory viewModelFactory, Stage primaryStage)
     {
         this.viewModelFactory = viewModelFactory;
         this.primaryStage = primaryStage;
+    }
+    public static ViewHandler getViewHandler(ViewModelFactory viewModelFactory, Stage primaryStage)
+    {
+        if (instance == null)
+        {
+            instance = new ViewHandler(viewModelFactory,primaryStage);
+        }
+        return instance;
     }
 
     public ChatViewController getVinylListController() throws IOException

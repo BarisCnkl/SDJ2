@@ -10,9 +10,9 @@ public class RunApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        ModelFactory modelFactory = new ModelFactory();
-        ViewModelFactory viewModelFactory = new ViewModelFactory(modelFactory);
-        ViewHandler viewFactory = new ViewHandler(viewModelFactory, primaryStage);
+        ModelFactory modelFactory = ModelFactory.getModelFactoryInstance();
+        ViewModelFactory viewModelFactory = ViewModelFactory.getInstance(modelFactory);
+        ViewHandler viewFactory = ViewHandler.getViewHandler(viewModelFactory, primaryStage);
         viewFactory.getVinylListController();
     }
 }

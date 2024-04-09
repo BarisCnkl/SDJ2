@@ -1,11 +1,10 @@
-package Client.model;
+package Client.Model;
 
 import TransferObjects.InputOutput;
-
 import java.util.List;
 
 public interface ChatInterface
 {
-  List<String> getMessages();
-  void sendMessage(String message);
+    List<String> getChatLogs();
+    void sendMessage(String message);
 }

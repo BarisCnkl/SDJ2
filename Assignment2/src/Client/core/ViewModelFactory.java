@@ -1,22 +1,31 @@
 package Client.core;
 import Client.*;
-import Client.views.ChatViewModel;
+import Client.Viewmodel.ChatViewmodel;
 
 public class ViewModelFactory
 {
-    private ChatViewModel chatViewmodel;
+    private static ViewModelFactory instance;
+    private ChatViewmodel chatViewmodel;
     private ModelFactory modelFactory;
 
-    public ViewModelFactory(ModelFactory modelFactory)
+    private ViewModelFactory(ModelFactory modelFactory)
     {
         this.modelFactory = modelFactory;
     }
+    public static ViewModelFactory getInstance(ModelFactory modelFactory)
+    {
+        if (instance == null)
+        {
+            instance = new ViewModelFactory(modelFactory);
+        }
+        return instance;
+    }
 
-    public ChatViewModel getChatViewmodel()
+    public ChatViewmodel getChatViewmodel()
     {
         if(chatViewmodel == null)
         {
-            chatViewmodel = new ChatViewModel(modelFactory.getModel());
+            chatViewmodel = new ChatViewmodel(modelFactory.getModel());
         }
         return chatViewmodel;
     }

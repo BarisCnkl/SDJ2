@@ -4,14 +4,24 @@ import Client.model.ChatModel;
 
 public class ModelFactory
 {
+    private static ModelFactory modelFactoryInstance;
     private ChatModel model;
 
-    public ChatModel getModel()
+    private ModelFactory()
     {
-        if(model == null)
+        model = new ChatModel();
+    }
+
+    public static ModelFactory getModelFactoryInstance()
+    {
+        if (modelFactoryInstance == null)
         {
-            model = new ChatModel();
+            modelFactoryInstance = new ModelFactory();
         }
+        return modelFactoryInstance;
+    }
+
+    public ChatModel getModel() {
         return model;
     }
 }

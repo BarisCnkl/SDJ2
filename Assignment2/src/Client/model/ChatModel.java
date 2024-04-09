@@ -5,49 +5,49 @@ import util.PropertyChangeSubject;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.List;
 
-public class ChatModel implements ChatInterface, PropertyChangeSubject
+public class ChatModel implements PropertyChangeSubject
 {
-  PropertyChangeSupport propertyChangeSupport;
-  List<String> chatLogs;
+    PropertyChangeSupport support;
+    List<String> chatLogs;
 
-  public ChatModel()
-  {
-    propertyChangeSupport = new PropertyChangeSupport(this);
-  }
+    public ChatModel()
+    {
+        support = new PropertyChangeSupport(this);
+        chatLogs = new ArrayList<>();
+    }
 
-  @Override public List<String> getMessages()
-  {
-    return chatLogs;
-  }
 
-  @Override public void sendMessage(String message)
-  {
-    chatLogs.add(message);
-  }
+    public List<String> getChatLogs()
+    {
+        return chatLogs;
+    }
 
-  @Override public void addPropertyChangeListener(
-      PropertyChangeListener listener)
-  {
-    propertyChangeSupport.addPropertyChangeListener(listener);
-  }
+    public void sendMessage(String message)
+    {
+        chatLogs.add(message);
+        support.firePropertyChange("New Message", null, chatLogs);
+    }
 
-  @Override public void addPropertyChangeListener(String name,
-      PropertyChangeListener listener)
-  {
-    propertyChangeSupport.addPropertyChangeListener(name,listener);
-  }
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        support.addPropertyChangeListener(listener);
+    }
 
-  @Override public void removePropertyChangeListener(
-      PropertyChangeListener listener)
-  {
-    propertyChangeSupport.removePropertyChangeListener(listener);
-  }
+    @Override
+    public void addPropertyChangeListener(String name, PropertyChangeListener listener) {
+        support.addPropertyChangeListener(name,listener);
+    }
 
-  @Override public void removePropertyChangeListener(String name,
-      PropertyChangeListener listener)
-  {
-    propertyChangeSupport.removePropertyChangeListener(name,listener);
-  }
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        support.removePropertyChangeListener(listener);
+    }
+
+    @Override
+    public void removePropertyChangeListener(String name, PropertyChangeListener listener) {
+        support.removePropertyChangeListener(name,listener);
+    }
 }
