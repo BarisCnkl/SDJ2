@@ -14,8 +14,7 @@ public class PersonDatabase implements PersonCollection
     persons.add(person);
   }
 
-  @Override
-  public Person getPersonWithName(String name)
+  @Override public Person getPersonWithName(String name)
   {
     try
     {

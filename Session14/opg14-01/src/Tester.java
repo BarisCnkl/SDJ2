@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Tester
 {
   public static void main(String[] args)
@@ -11,16 +9,14 @@ public class Tester
     Person person4 = new Person("Bab");
     Person person5 = new Person("Bib");
 
-
     personDatabase.addPerson(person1);
     personDatabase.addPerson(person2);
     personDatabase.addPerson(person3);
     personDatabase.addPerson(person4);
     personDatabase.addPerson(person5);
 
-
-    CachedPersonCollection cachedPersonCollection = new CachedPersonCollection(personDatabase);
-
+    CachedPersonCollection cachedPersonCollection = new CachedPersonCollection(
+        personDatabase);
 
     PersonCollection personCollection = cachedPersonCollection;
 

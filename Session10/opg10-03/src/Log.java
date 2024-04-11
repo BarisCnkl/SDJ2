@@ -7,14 +7,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Log
 {
+    private static Log instance = new Log();
+    private static final Lock lock = new ReentrantLock();
     private Queue<LogLine> logQueue;
     private File logFile;
     private DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd  hh:mm:ss");
 
-    public Log()
+    private Log()
     {
         //All setup has been moved to separate method to make it easier to refactor to Singleton
         initialize();
@@ -31,6 +35,20 @@ public class Log
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public static Log getInstance()
+    {
+        if (instance == null)
+        {
+            synchronized (lock)
+            {
+                if (instance==null)
+                {
+                    instance = new Log();
+                }
+            }
+        }
+        return instance;
     }
 
     public synchronized void add(String log)

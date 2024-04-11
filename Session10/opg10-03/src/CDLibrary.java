@@ -11,7 +11,7 @@ public class CDLibrary {
     }
 
     public CDLibrary() {
-        this.logger = new Log();
+        this.logger = Log.getInstance();
     }
 
     public void onPressedRemoveCD()

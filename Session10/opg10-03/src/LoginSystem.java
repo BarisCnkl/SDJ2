@@ -11,7 +11,7 @@ public class LoginSystem {
     }
 
     public LoginSystem() {
-        this.logger = new Log();
+        this.logger = Log.getInstance();
     }
 
     //dummy method to simulate logging in
