@@ -1,0 +1,24 @@
+ReadWriteLock:
+
+readLock() metoden sikrer, at ingen skribent skriver eller venter på at skrive, før den tillader en læser at fortsætte.
+readUnlock() metoden mindsker antallet af læsere og underretter ventende tråde.
+writeLock() metoden sikrer, at ingen læsere læser eller skrivere skriver, før den tillader en skribent at fortsætte.
+writeUnlock() metoden mindsker antallet af skrivere og underretter ventende tråde.
+
+
+Reader:
+
+Reader klassen erhverver læselåsen, simulerer læsning og frigiver derefter læselåsen.
+
+
+Writer:
+
+Writer klassen erhverver skrivelåsen, simulerer skrivning og frigiver derefter skrivelåsen.
+
+
+ReadersWritersExample:
+
+Denne klasse opretter og starter flere læser- og skribenttråde for at demonstrere løsningen på Læser-Skriver problemet.
+
+
+Denne løsning sikrer, at flere læsere kan læse samtidigt, men skrivere har eksklusiv adgang til den delte ressource, hvilket opretholder synkronisering og undgår kapløbsbetingelser.
