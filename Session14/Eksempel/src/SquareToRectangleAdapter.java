@@ -7,11 +7,11 @@ public class SquareToRectangleAdapter implements Rectangle {
 
   @Override
   public double getWidth() {
-    return square.calculateArea();
+    return square.getSide();
   }
 
   @Override
   public double getHeight() {
-    return square.calculateArea();
+    return square.getSide();
   }
 }

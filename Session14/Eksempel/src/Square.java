@@ -8,4 +8,9 @@ public class Square {
   public double calculateArea() {
     return side * side;
   }
+
+  public double getSide()
+  {
+    return side;
+  }
 }
